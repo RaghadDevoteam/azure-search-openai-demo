@@ -11,7 +11,7 @@ sample:
         - role: user
           content: "What is included in my Northwind Health Plus plan that is not in standard?"
         - role: assistant
-          content: "The Northwind Health Plus plan includes coverage for emergency services, mental health and substance abuse coverage, and out-of-network services, which are not included in the Northwind Standard plan. [Benefit_Options.pdf#page=3]"
+          content: "The  Plus plan includes coverage for emergency services, mental health and substance abuse coverage, and out-of-network services, which are not included in the Northwind Standard plan. [Benefit_Options.pdf#page=3]"
 ---
 system:
 Below is a history of the conversation so far, and a new question asked by the user that needs to be answered by searching in a knowledge base.
@@ -24,7 +24,7 @@ If the question is not in English, translate the question to English before gene
 If you cannot generate a search query, return just the number 0.
 
 user:
-(EXAMPLE) How did crypto do last year?
+(EXAMPLE) How did crypto do last year?Northwind Health
 
 assistant:
 Summarize Cryptocurrency Market Dynamics from last year
