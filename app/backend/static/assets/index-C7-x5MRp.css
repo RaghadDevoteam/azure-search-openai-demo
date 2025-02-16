@@ -101,7 +101,7 @@ body {
   padding: 1rem;
   width: 100%;
   max-width: 64.25rem;
-  background: #f2f2f2;
+  background: #fafafa;
 }
 ._chatAnalysisPanel_64auj_77 {
   flex: 1;
@@ -315,7 +315,7 @@ sup {
 }
 ._example_1uwvb_1 {
   word-break: break-word;
-  background: #dbdbdb;
+  background: #FFFFFF;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
