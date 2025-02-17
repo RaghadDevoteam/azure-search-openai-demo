@@ -21,7 +21,7 @@
 .headerTitleContainer {
     display: flex;
     align-items: center;
-    color: #f2f2f2;
+    color: #784A9D;
     text-decoration: none;
 }
 
@@ -39,7 +39,7 @@
     z-index: 100;
     display: none;
     flex-direction: column;
-    background-color: #222222;
+    background-color: #fafafa;
     position: absolute;
     top: 2.7rem;
     right: 0;
@@ -55,9 +55,9 @@
 
 .headerNavPageLink {
     padding: 1rem;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #fafafa;
     text-align: right;
-    color: #f2f2f2;
+    color: #784A9D;
     text-decoration: none;
     opacity: 0.75;
     transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
@@ -71,7 +71,7 @@
 }
 
 .headerNavPageLinkActive {
-    color: #f2f2f2;
+    color: #784A9D;
     text-decoration: none;
     font-size: 1.2rem;
     text-align: right;
@@ -86,7 +86,7 @@
     display: block;
     background: none;
     border: none;
-    color: #f2f2f2;
+    color: #784A9D;
     font-size: 1.5rem;
     cursor: pointer;
     z-index: 101;
@@ -123,7 +123,7 @@
     }
 
     .headerNavPageLinkActive {
-        color: #f2f2f2;
+        color: #784A9D;
         text-decoration: none;
     }
 
