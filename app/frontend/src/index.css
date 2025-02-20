@@ -16,7 +16,8 @@ html {
         "Fira Sans",
         "Droid Sans",
         "Helvetica Neue",
-        sans-serif;
+        sans-serif,
+        Poppins;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
