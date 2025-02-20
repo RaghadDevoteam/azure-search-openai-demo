@@ -43,7 +43,7 @@ tr:nth-child(even) {
 
 code {
     display: block;
-    font-family: monospace;
+    font-family: Poppins;
     padding: 0.625em;
     background-color: #f6f8fa;
 }
