@@ -13,7 +13,20 @@ def index_url_data(url, content):
     document = {
         "id": url,  # Use the URL as a unique identifier
         "content": content,
-        "sourcepage": url,  # Stores the original source
+         "sourcepages": [
+        "https://www.nngroup.com/articles/ux-strategy/",
+        "https://userpilot.com/blog/ux-roadmap/",
+        "https://uxpajournal.org/wp-content/uploads/sites/7/pdf/JUS_Lee_Nov2018.pdf",
+        "https://books.google.com.sa/books?hl=en&lr=&id=G5WvEAAAQBAJ&oi=fnd&pg=PA18&dq=how+to+make+okrs+for+customer+experience&ots=WAKDQpXCMn&sig=1PZY2W5XQqhMDBqmBVRJUNivyrM&redir_esc=y#v=onepage&q=how%20to%20make%20okrs%20for%20customer%20experience&f=true",
+        "https://medium.com/@ux.girish/defining-kpis-and-okrs-digital-product-ux-ui-design-e2d18c3a2fb",
+        "https://www.sciencedirect.com/science/article/abs/pii/S0148296323003016",
+        "https://uxcel.com/guides/ux-team-management/okrs",
+        "https://www.arataumodular.com/app/wp-content/uploads/2022/07/The-Three-Building-Blocks-Of-Successful-Customer-experience-Transformations.pdf",
+        "https://essay.utwente.nl/95404/1/Iliadi_BA_BMS.pdf",
+        "https://www.invoca.com/blog/gathering-customer-insights-strategies",
+        "https://contentsquare.com/guides/customer-experience/roadmap/",
+        "https://books.google.com.sa/books?hl=en&lr=&id=G5WvEAAAQBAJ&oi=fnd&pg=PA18&dq=how+to+make+okrs+for+customer+experience&ots=WAKDQpXCMn&sig=1PZY2W5XQqhMDBqmBVRJUNivyrM&redir_esc=y#v=onepage&q=how%20to%20make%20okrs%20for%20customer%20experience&f=false"
+    ],  # Stores the original sources
         "embedding": generate_embedding(content)  # Generate vector embeddings
     }
 
