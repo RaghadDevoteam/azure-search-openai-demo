@@ -57,8 +57,25 @@ class RetrieveThenReadApproach(Approach):
         messages: list[ChatCompletionMessageParam],
         session_state: Any = None,
         context: dict[str, Any] = {},
-    ) -> dict[str, Any]:
+       ) -> dict[str, Any]:
+        
         q = messages[-1]["content"]
+
+        url = context.get("source_url", None)  # Get URL from frontend
+
+        context_text = extract_text_from_url(url) if url else ""
+        if context_text:
+         q += f"\n\nContext from {url}: {context_text}"
+
+        # Retrieve documents and pass URL for citation
+        results = await self.search(
+        top, q, filter, vectors, use_text_search, use_vector_search, use_semantic_ranker, use_semantic_captions
+        )
+
+        text_sources = self.get_sources_content(results, use_semantic_captions, use_image_citation=False)
+        if url:
+         text_sources.append(f"URL Source: [{url}]({url})")
+
         if not isinstance(q, str):
             raise ValueError("The most recent message content must be a string.")
         overrides = context.get("overrides", {})

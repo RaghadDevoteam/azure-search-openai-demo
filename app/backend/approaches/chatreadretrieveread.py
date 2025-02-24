@@ -1,5 +1,7 @@
 from typing import Any, Coroutine, List, Literal, Optional, Union, overload
 
+from utils.fetch_url import extract_text_from_url
+
 from azure.search.documents.aio import SearchClient
 from azure.search.documents.models import VectorQuery
 from openai import AsyncOpenAI, AsyncStream
@@ -95,6 +97,38 @@ class ChatReadRetrieveReadApproach(ChatApproach):
         filter = self.build_filter(overrides, auth_claims)
 
         original_user_query = messages[-1]["content"]
+        url = overrides.get("source_url", None)
+
+        context_text = ""
+        if url:
+            context_text = extract_text_from_url(url)
+
+        # Append extracted content to search query
+        if context_text:
+            original_user_query += f"\n\nContext from {url}: {context_text}"
+
+            query_text = self.get_search_query(chat_completion, original_user_query)
+
+            # Fetch documents from Azure AI Search
+            results = await self.search(
+                 top,
+                 query_text,
+                 filter,
+                 vectors,
+                 use_text_search,
+                 use_vector_search,
+                 use_semantic_ranker,
+                 use_semantic_captions,
+                 minimum_search_score,
+                minimum_reranker_score,
+                    )
+
+        # Add URL as a citation in the GPT response
+            text_sources = self.get_sources_content(results, use_semantic_captions, use_image_citation=False)
+            if url:
+             text_sources.append(f"URL Source: [{url}]({url})")
+
+
         if not isinstance(original_user_query, str):
             raise ValueError("The most recent message content must be a string.")
 
