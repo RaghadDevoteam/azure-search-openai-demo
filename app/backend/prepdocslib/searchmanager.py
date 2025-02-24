@@ -1,8 +1,25 @@
 import asyncio
 import logging
 import os
+from azure.search.documents import SearchClient
 from typing import List, Optional
 
+def index_url_data(url, content):
+    """Stores extracted webpage content in Azure AI Search."""
+    search_client = SearchClient(endpoint="YOUR_AZURE_SEARCH_ENDPOINT",
+                                 index_name="YOUR_INDEX_NAME",
+                                 credential="YOUR_SEARCH_CREDENTIAL")
+
+    document = {
+        "id": url,  # Use the URL as a unique identifier
+        "content": content,
+        "sourcepage": url,  # Stores the original source
+        "embedding": generate_embedding(content)  # Generate vector embeddings
+    }
+
+    search_client.upload_documents(documents=[document])
+    print(f"Indexed: {url}")
+    
 from azure.search.documents.indexes.models import (
     AzureOpenAIVectorizer,
     AzureOpenAIVectorizerParameters,

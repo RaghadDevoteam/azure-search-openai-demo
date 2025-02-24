@@ -164,6 +164,10 @@ class ChatReadRetrieveReadVisionApproach(ChatApproach):
                 if url:
                     image_sources.append(url)
 
+        if send_images_to_gptvision and url:
+          image_sources.append(url)  # Include URL images in citations
+
+
         rendered_answer_prompt = self.prompt_manager.render_prompt(
             self.answer_prompt,
             self.get_system_prompt_variables(overrides.get("prompt_template"))

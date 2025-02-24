@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
+
 def extract_text_from_url(url):
     """Fetches and extracts text from a webpage."""
     try:
@@ -12,3 +13,11 @@ def extract_text_from_url(url):
     except Exception as e:
         return f"Error fetching URL: {e}"
 
+   
+   
+   
+text = extract_text_from_url(url)
+index_url_data(url, text)
+
+text = extract_text_from_url(url)
+store_url_in_db(url, text)
